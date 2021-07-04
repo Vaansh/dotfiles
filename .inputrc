@@ -1,0 +1,6 @@
+"\e[B": history-search-forward
+"\e[A": history-search-backward
+
+set completion-ignore-case on
+set show-all-if-ambiguous on
+TAB: menu-complete
