@@ -1,0 +1,55 @@
+{
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "java.semanticHighlighting.enabled": true,
+  "python.languageServer": "Microsoft",
+  "python.pythonPath": "/usr/local/anaconda3/bin/python",
+
+  "terminal.integrated.fontFamily": "'Fira Mono for Powerline'",
+  "color-highlight.markerType": "dot-before",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "liveServer.settings.donotShowInfoMsg": true,
+  "[json]": {},
+  "terminal.integrated.shell.osx": "/bin/zsh",
+  "terminal.integrated.fontSize": 14,
+  "mssql.connections": [
+    {
+      "server": "{{put-server-name-here}}",
+      "database": "{{put-database-name-here}}",
+      "user": "{{put-username-here}}",
+      "password": "{{put-password-here}}"
+    }
+  ],
+  "json.schemas": [],
+  "workbench.iconTheme": "vscode-icons",
+  "terminal.integrated.cursorStyle": "line",
+  "editor.fontFamily": "'Fira Code', 'Fira Mono for Powerline', 'MesloLGS NF', 'iosevka ss09'",
+  "editor.inlineHints.fontFamily": "'Fira Code'",
+  "terminal.integrated.lineHeight": 1.2,
+  "editor.fontSize": 14,
+  "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": true,
+  "kite.showWelcomeNotificationOnStartup": false,
+  "vs-kubernetes": {
+    "vscode-kubernetes.minikube-path.mac": "/Users/vaanshlakhwara/.vs-kubernetes/tools/minikube/darwin-amd64/minikube",
+    "vscode-kubernetes.helm-path.mac": "/Users/vaanshlakhwara/.vs-kubernetes/tools/helm/darwin-amd64/helm"
+  },
+  "workbench.editorAssociations": [
+    {
+      "viewType": "jupyter.notebook.ipynb",
+      "filenamePattern": "*.ipynb"
+    }
+  ],
+  "workbench.editor.showTabs": true,
+  "terminal.integrated.allowMnemonics": true,
+  "terminal.integrated.inheritEnv": false,
+  "jupyter.askForKernelRestart": false,
+  "editor.formatOnSave": true,
+  "workbench.colorTheme": "Community Material Theme Palenight High Contrast",
+  "workbench.colorCustomizations": {
+    "editorLineNumber.foreground": "#546e7a",
+    "editorLineNumber.activeForeground": "#80cbc4"
+  }
+}
