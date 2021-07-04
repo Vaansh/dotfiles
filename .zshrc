@@ -25,11 +25,8 @@ compinit
 _comp_options+=(globdots)		# Include hidden files.
 
 # History
-bindkey '\e[A' history-search-backward
-bindkey '\e[B' history-search-forward
-
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
-
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
  #/$$$$$$$  /$$                     /$$                    
 #| $$__  $$| $$                    |__/                    
@@ -45,13 +42,14 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
                          
 plugins=(
   git
-  wakatime
-  bundler
-  dotenv
   osx
   rake
-  rbenv
   ruby
+  rbenv
+  dotenv
+  bundler
+  wakatime
+  history-substring-search
 )
 
 
@@ -165,4 +163,6 @@ export PATH="/Users/vaanshlakhwara/opt/anaconda3/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source /Users/vaanshlakhwara/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
