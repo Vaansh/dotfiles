@@ -66,8 +66,8 @@ plugins=(
 function penv() {
   if [ $# -eq 0 ]
     then
-      python -m venv venv
-      source venv/bin/activate
+      virtualenv env
+      source env/bin/activate
     else
       deactivate
   fi
@@ -143,23 +143,30 @@ bindkey '^e' edit-command-line
 alias g='git'
 alias c='clear'
 alias h='history'
+alias l='lynx'
+alias python=python3
 alias ga='git add'
 alias gs='git status'
 alias gaa='git add .'
+alias gpo='git push -u origin'
 alias gc='git commit -m'
 alias r='source ~/.zshrc'
 alias gca='git commit -am'
-alias vimr="source ~/.vimrc"
+alias goo='lynx google.com'
+alias ddg='lynx duckduckgo.com'
+alias go="/usr/local/go/bin/go"
 
 # Paths
-export PATH=$PATH:/usr/local/go/bin
+export GOBIN="/Users/vaanshlakhwara/go/bin"
 export PATH="$PATH:$(yarn global bin)"
 export PATH=${PATH}:/usr/local/mysql/bin/
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export ZSH="/Users/vaanshlakhwara/.oh-my-zsh"
 export PATH=/usr/local/lib/node_modules/npm:$PATH
+export PATH=$$PATH:/usr/local/share/dotnet/
 export PATH="/Users/vaanshlakhwara/opt/anaconda3/bin:$PATH"
-
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
