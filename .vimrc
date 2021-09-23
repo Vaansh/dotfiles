@@ -16,7 +16,7 @@ set nocompatible
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
-Plug 'vimsence/vimsence'
+"Plug 'vimsence/vimsence'
 Plug 'preservim/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'wakatime/vim-wakatime'
