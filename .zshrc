@@ -80,55 +80,14 @@ function gacp() {
   git push
 }
 
-# vi mode
-bindkey -v
-export KEYTIMEOUT=1
-
-# creds.: Luke Smith
-# Use vim keys in tab complete menu:
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -v '^?' backward-delete-char
-
-# Change cursor shape for different vi modes.
-function zle-keymap-select {
-  if [[ ${KEYMAP} == vicmd ]] ||
-     [[ $1 = 'block' ]]; then
-    echo -ne '\e[1 q'
-  elif [[ ${KEYMAP} == main ]] ||
-       [[ ${KEYMAP} == viins ]] ||
-       [[ ${KEYMAP} = '' ]] ||
-       [[ $1 = 'beam' ]]; then
-    echo -ne '\e[5 q'
-  fi
+function gcp() {
+	git status
+	read -p ‘add: ' filestoadd
+	git add $filestoadd
+	read -p ‘commit message: ' msg
+	git commit -m “msg” --no-verify
+	git push origin $(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
 }
-zle -N zle-keymap-select
-zle-line-init() {
-    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-    echo -ne "\e[5 q"
-}
-zle -N zle-line-init
-echo -ne '\e[5 q' # Use beam shape cursor on startup.
-preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
-
-# Use lf to switch directories and bind it to ctrl-o
-lfcd () {
-    tmp="$(mktemp)"
-    lf -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        rm -f "$tmp"
-        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-    fi
-}
-bindkey -s '^o' 'lfcd\n'
-
-# Edit line in vim with ctrl-e:
-autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
-
 
   #/$$$$$$  /$$ /$$                                                /$$$           /$$$$$$$             /$$     /$$
  #/$$__  $$| $$|__/                                               /$$ $$         | $$__  $$           | $$    | $$
@@ -157,19 +116,27 @@ alias ddg='lynx duckduckgo.com'
 alias go="/usr/local/go/bin/go"
 
 # Paths
-export GOBIN="/Users/vaanshlakhwara/go/bin"
+#export GOBIN="/Users/vaanshlakhwara/go/bin"
+#export PATH="$PATH:$(yarn global bin)"
+#export PATH=${PATH}:/usr/local/mysql/bin/
+#export PATH=$HOME/bin:/usr/local/bin:$PATH
+#export ZSH="/Users/vaanshlakhwara/.oh-my-zsh"
+#export PATH=/usr/local/lib/node_modules/npm:$PATH
+#export PATH=$$PATH:/usr/local/share/dotnet/
+#export PATH="/Users/vaanshlakhwara/opt/anaconda3/bin:$PATH"
+#export PATH="/usr/bin:/bin:/usr/sbin:/sbin"
+#export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+#export PATH=$PATH:/usr/local/go/bin
 export PATH="$PATH:$(yarn global bin)"
 export PATH=${PATH}:/usr/local/mysql/bin/
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export ZSH="/Users/vaanshlakhwara/.oh-my-zsh"
 export PATH=/usr/local/lib/node_modules/npm:$PATH
-export PATH=$$PATH:/usr/local/share/dotnet/
 export PATH="/Users/vaanshlakhwara/opt/anaconda3/bin:$PATH"
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin"
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"
